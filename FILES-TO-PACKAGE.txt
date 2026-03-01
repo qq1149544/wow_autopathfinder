@@ -1,14 +1,9 @@
 # Relative to D:\Projects\C++\wow\model
 
-pathfinder/run-fullflow-route.js
 pathfinder/run-kalimdor-route.js
 pathfinder/navmesh-route-service.js
-pathfinder/export-recast-geometry.js
-pathfinder/terrain-loader.js
-pathfinder/wmo-pathfinder.js
 pathfinder/coords.js
 pathfinder/path-utils.js
-pathfinder/export-map-markers-2d.js
 pathfinder/scripts/
 pathfinder/docs/
 pathfinder/PATHFINDER-FILES.md

@@ -1,14 +1,17 @@
 # WoW Auto Pathfinder
 
-WoW Auto Pathfinder is an end-to-end route planning project that builds navigation geometry from exported map assets, generates a NavMesh, and outputs a walkable route with 2D visualization.
+WoW Auto Pathfinder is a route planning project that consumes pre-exported geometry, generates a NavMesh, and outputs a walkable route with 2D visualization.
 
 ## Pipeline
 
-- Export ADT OBJ and placement CSV files
-- Merge terrain + WMO + M2 into route geometry
+- Prepare route geometry JSON (`recast-geometry-route.json`)
 - Build NavMesh (tiled/solo strategy)
 - Solve route and export `route.json`
-- Render 2D route preview
+- Render route preview artifacts
+
+## Release Scope
+
+This public release intentionally excludes game-directory resource package parsing interfaces (CASC/wow client extraction).
 
 ## Key Docs
 

@@ -2,16 +2,13 @@
 
 ## Objective
 
-Given a map and start/end coordinates, the project automates:
+Given pre-exported geometry and start/end coordinates, the project automates:
 
-- regional terrain/building export
-- navigation geometry generation
 - NavMesh build and route planning
 - output of route coordinates and 2D route image
 
 ## Core Features
 
-- region model export (terrain + WMO + M2)
 - route corridor geometry merge (supports terrain-only mode)
 - NavMesh generation with tiled/solo strategies
 - route solving and coordinate output
@@ -20,18 +17,12 @@ Given a map and start/end coordinates, the project automates:
 
 ## Full Pipeline
 
-1. `scripts/export-adt-obj.js`
-   - exports `adt_*.obj` and `ModelPlacementInformation.csv`
-2. `scripts/export-route-geometry.js`
+1. `scripts/export-route-geometry.js`
    - merges terrain and placed models to create `recast-geometry-route.json`
-3. `run-kalimdor-route.js`
+2. `run-kalimdor-route.js`
    - builds NavMesh and writes route to `route.json`
-4. `export-map-markers-2d.js`
-   - creates `map-markers-2d-route.png`
 
-One-command entry:
-
-- `run-fullflow-route.js`
+Public release scope note: game-directory resource package parsing interfaces are excluded.
 
 ## Implementation Effect
 

@@ -197,7 +197,7 @@ async function loadNavMeshFromMmap(mmapPath) {
 }
 
 /**
- * Build navmesh from geometry file or from CASC. Returns NavMeshQuery or null.
+ * Build navmesh from geometry file. Returns NavMeshQuery or null.
  * 若提供 options.mmapPath 且文件存在，则优先从预生成 MMAP 加载（不再从几何构建）。
  */
 async function buildNavMesh(options = {}) {
@@ -242,28 +242,13 @@ async function buildNavMesh(options = {}) {
 		} else {
 			lastGeometryBounds = null;
 		}
-	} else if (options.casc && options.mapName && options.bbox) {
-		const { buildRecastGeometry } = require('./export-recast-geometry');
-		const geom = await buildRecastGeometry(options.casc, options.mapName, options.bbox, options);
-		positions = geom.positions;
-		indices = geom.indices;
-		currentGeometryPath = null;
-		if (typeof process !== 'undefined' && process.env.DEBUG_NAVMESH) {
-			let minX = Infinity, minY = Infinity, minZ = Infinity, maxX = -Infinity, maxY = -Infinity, maxZ = -Infinity;
-			for (let i = 0; i < positions.length; i += 3) {
-				minX = Math.min(minX, positions[i]); maxX = Math.max(maxX, positions[i]);
-				minY = Math.min(minY, positions[i+1]); maxY = Math.max(maxY, positions[i+1]);
-				minZ = Math.min(minZ, positions[i+2]); maxZ = Math.max(maxZ, positions[i+2]);
-			}
-			console.warn('[navmesh] CASC+bbox geometry:', (positions.length / 3) | 0, 'verts', (indices.length / 3) | 0, 'tris', 'bounds', { minX, maxX, minZ, maxZ });
-		}
 	} else if (fs.existsSync(geometryPath)) {
 		const data = JSON.parse(fs.readFileSync(geometryPath, 'utf8'));
 		positions = data.positions;
 		indices = data.indices;
 		currentGeometryPath = geometryPath;
 	} else {
-		console.error('[navmesh] No geometry: provide casc+mapName+bbox for route, or ensure', geometryPath, 'exists for server.');
+		console.error('[navmesh] No geometry: ensure', geometryPath, 'exists.');
 		return null;
 	}
 	if (!positions || !indices || positions.length < 9 || indices.length < 3) {

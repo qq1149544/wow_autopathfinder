@@ -51,9 +51,7 @@ function routeBboxFromEndpoints(start, end, margin = 280) {
 async function main() {
 	if (!fs.existsSync(GEOMETRY_PATH)) {
 		console.error('请先导出几何:');
-		console.error('  OBJ: node pathfinder/scripts/export-route-geometry.js --dir "<wow.export>/maps/kalimdor" --from 北 西 高 --to 北 西 高');
-		console.error('  或全图 OBJ: node pathfinder/scripts/obj-to-recast-geometry.js --dir "<wow.export>/maps/kalimdor" --out pathfinder/exports/recast-geometry-kalimdor-from-obj.json');
-		console.error('  CASC+WMO: node pathfinder/scripts/export-recast-geometry-casc.js --map Kalimdor --from 北 西 高 --to 北 西 高 然后 --use-casc');
+		console.error('  node pathfinder/scripts/export-route-geometry.js --dir "<prepared-obj-dir>" --from 北 西 高 --to 北 西 高');
 		process.exit(1);
 	}
 
@@ -153,23 +151,7 @@ async function main() {
 	points.forEach((p, i) => console.log(`  ${i + 1}. x=${p.x.toFixed(2)} y=${p.y.toFixed(2)} z=${p.z.toFixed(2)}`));
 	fs.writeFileSync(path.join(__dirname, 'route.json'), JSON.stringify(points, null, 2), 'utf8');
 	console.log('\n已写入 pathfinder/route.json');
-	try {
-		const { exportRegionMapPng } = require('./export-map-markers-2d');
-		const routePngPath = path.join(__dirname, 'exports', 'map-markers-2d-route.png');
-		await exportRegionMapPng({
-			mapName: 'Kalimdor',
-			fromNorth: USER_START.x,
-			fromWest: USER_START.y,
-			toNorth: USER_END.x,
-			toWest: USER_END.y,
-			margin: 2,
-			outPath: routePngPath,
-			routePoints: points,
-		});
-		console.log('已导出路线点位图:', routePngPath);
-	} catch (e) {
-		console.warn('[kalimdor] 导出路线 PNG 失败（需 WoW 客户端小地图）:', e.message);
-	}
+	console.log('[kalimdor] PNG map rendering interface is excluded in this public release.');
 }
 
 main().catch(e => { console.error(e); process.exit(1); });

@@ -12,10 +12,9 @@ Publish `pathfinder` as a reproducible and verifiable navigation project:
 
 ### 2.1 Pipeline
 
-- data export: `export-adt-obj.js`
 - geometry assembly: `export-route-geometry.js`
 - NavMesh and route solving: `navmesh-route-service.js` + `run-kalimdor-route.js`
-- one-command execution: `run-fullflow-route.js`
+- run and validate from prepared geometry input
 
 ### 2.2 Key Engineering Improvements
 
@@ -37,8 +36,8 @@ Publish `pathfinder` as a reproducible and verifiable navigation project:
 
 1. Clean generated artifacts and private local files.
 2. Install dependencies with `npm install`.
-3. Run full flow:
-   - `node run-fullflow-route.js --from 326.71 -4704.19 16.08 --to -618.48 -4251.93 38.73`
+3. Run route solve:
+   - `node run-kalimdor-route.js --from 326.71 -4704.19 16.08 --to -618.48 -4251.93 38.73`
 4. Run regression:
    - `npm run route:regression`
 5. Confirm regression report has no failures:
@@ -50,6 +49,7 @@ Publish `pathfinder` as a reproducible and verifiable navigation project:
 - coordinate/axis conventions differ across model sources
 - per-model manual fixes are not scalable
 - generated exports are large and must be ignored via `.gitignore`
+- game-directory resource package parsing interfaces are intentionally excluded from this release
 
 ## 5. Pre-Publish Precautions
 

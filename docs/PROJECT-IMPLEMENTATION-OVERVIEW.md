@@ -2,36 +2,27 @@
 
 ## Goal
 
-Given a map plus start/end coordinates, the project automates:
+Given pre-exported route geometry plus start/end coordinates, the project automates:
 
-- regional terrain/building export
-- navigation geometry generation
 - NavMesh build and route planning
 - route coordinate output and 2D route visualization
 
 ## Main Features
 
-- regional model export (terrain + WMO + M2)
-- route-corridor geometry merge (with optional terrain-only mode)
+- route-corridor geometry merge (from prepared OBJ/CSV inputs)
 - multi-strategy NavMesh build (tiled/solo)
 - path solve and coordinate output
-- 2D route rendering (PNG)
+- route preview artifacts (SVG/PNG snapshots)
 - placement diagnostics and automated regression validation
 
 ## End-to-End Flow
 
-1. `scripts/export-adt-obj.js`
-   - Exports `adt_*.obj` and `ModelPlacementInformation.csv`
-2. `scripts/export-route-geometry.js`
+1. `scripts/export-route-geometry.js`
    - Merges terrain OBJ + placed models into `recast-geometry-route.json`
-3. `run-kalimdor-route.js`
+2. `run-kalimdor-route.js`
    - Loads geometry, builds NavMesh, computes route, writes `route.json`
-4. `export-map-markers-2d.js`
-   - Exports `map-markers-2d-route.png`
 
-One-command entry:
-
-- `run-fullflow-route.js`
+This release does not include game-directory resource package parsing interfaces (CASC/wow client extraction).
 
 ## Unified Placement/Orientation Fix Strategy
 

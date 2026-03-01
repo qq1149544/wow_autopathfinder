@@ -1,16 +1,15 @@
 {
   "name": "wow-pathfinder",
   "version": "1.0.0",
-  "description": "WoW route fullflow (ADT OBJ -> geometry -> navmesh route)",
-  "main": "run-fullflow-route.js",
+  "description": "WoW route planner from pre-exported geometry",
+  "main": "run-kalimdor-route.js",
   "scripts": {
     "test": "node run-kalimdor-route.js",
     "route:kalimdor": "node run-kalimdor-route.js",
-    "route:fullflow": "node run-fullflow-route.js",
     "route:regression": "node scripts/run-placement-regression.js"
   },
-"dependencies": {
-		"navcat": "^0.2.0",
-		"recast-navigation": "^0.42.1"
-	}
+  "dependencies": {
+    "navcat": "^0.2.0",
+    "recast-navigation": "^0.42.1"
+  }
 }

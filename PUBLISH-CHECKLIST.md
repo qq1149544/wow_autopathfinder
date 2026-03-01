@@ -3,15 +3,10 @@
 ## Include
 
 - Core runtime files in `pathfinder/`
-  - `run-fullflow-route.js`
   - `run-kalimdor-route.js`
   - `navmesh-route-service.js`
-  - `export-recast-geometry.js`
-  - `terrain-loader.js`
-  - `wmo-pathfinder.js`
   - `coords.js`
   - `path-utils.js`
-  - `export-map-markers-2d.js`
 - Export/diagnostic/regression scripts in `pathfinder/scripts/`
 - Docs in `pathfinder/docs/`
 - `pathfinder/PATHFINDER-FILES.md`
@@ -34,7 +29,7 @@
 ## Validation Commands
 
 - `npm install`
-- `node run-fullflow-route.js --from 326.71 -4704.19 16.08 --to -618.48 -4251.93 38.73`
+- `node run-kalimdor-route.js --from 326.71 -4704.19 16.08 --to -618.48 -4251.93 38.73`
 - `npm run route:regression`
 
 ## Pass Criteria

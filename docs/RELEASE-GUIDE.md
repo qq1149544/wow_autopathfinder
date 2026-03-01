@@ -12,10 +12,9 @@ Publish `pathfinder` as a reproducible and verifiable navigation project on GitH
 
 ### 2.1 Core Pipeline
 
-- region export: `export-adt-obj.js`
 - geometry build: `export-route-geometry.js`
 - NavMesh + route planning: `navmesh-route-service.js` + `run-kalimdor-route.js`
-- one-command entry: `run-fullflow-route.js`
+- route output: `route.json` and README image artifacts
 
 ### 2.2 Key Optimizations and Fixes
 
@@ -38,8 +37,8 @@ Publish `pathfinder` as a reproducible and verifiable navigation project on GitH
 1. Remove non-publishable files (see `GITHUB-PUBLISH-CHECKLIST.md`)
 2. Install dependencies:
    - `npm install`
-3. Run full-flow validation:
-   - `node run-fullflow-route.js --from 326.71 -4704.19 16.08 --to -618.48 -4251.93 38.73`
+3. Run route validation:
+   - `node run-kalimdor-route.js --from 326.71 -4704.19 16.08 --to -618.48 -4251.93 38.73`
 4. Run regression validation:
    - `npm run route:regression`
 5. Check report:
@@ -52,6 +51,7 @@ Publish `pathfinder` as a reproducible and verifiable navigation project on GitH
 - visual and collision models may use different axis conventions; transform chains must be unified and regression-tested
 - point-fix debugging is not scalable; statistical regression gates are required
 - generated exports are large; `.gitignore` governance is mandatory
+- extraction interfaces for game-directory packages are excluded from this public release
 
 ## 5. Important Notes
 
