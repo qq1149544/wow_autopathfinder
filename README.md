@@ -21,3 +21,13 @@ WoW Auto Pathfinder is an end-to-end route planning project that builds navigati
 The image below shows the current route output preview:
 
 ![Route 2D Preview](docs/images/route-2d-preview.svg)
+
+### PNG Snapshots
+
+Route result snapshot:
+
+![Route 2D PNG](docs/images/map-markers-2d-route.png)
+
+Start/end marker snapshot:
+
+![Route Markers PNG](docs/images/map-markers-2d-points.png)
