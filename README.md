@@ -1,15 +1,23 @@
-# Pathfinder GitHub Release Bundle
+# WoW Auto Pathfinder
 
-This directory stores release-oriented materials for publishing the `pathfinder` project.
+WoW Auto Pathfinder is an end-to-end route planning project that builds navigation geometry from exported map assets, generates a NavMesh, and outputs a walkable route with 2D visualization.
 
-## Contents
+## Pipeline
 
-- `PUBLISH-CHECKLIST.md`: what to include/exclude before publishing
-- `PROJECT-OVERVIEW.md`: project features, workflow, and current results
-- `RELEASE-GUIDE.md`: technical release process, known issues, and precautions
-- `FILES-TO-PACKAGE.txt`: practical file list for packaging
+- Export ADT OBJ and placement CSV files
+- Merge terrain + WMO + M2 into route geometry
+- Build NavMesh (tiled/solo strategy)
+- Solve route and export `route.json`
+- Render 2D route preview
 
-## Source Project
+## Key Docs
 
-- Main project directory: `../pathfinder`
-- Keep this bundle in sync when release docs or publish rules are updated.
+- `docs/PROJECT-IMPLEMENTATION-OVERVIEW.md`
+- `docs/RELEASE-GUIDE.md`
+- `docs/GITHUB-PUBLISH-CHECKLIST.md`
+
+## Route 2D Preview
+
+The image below shows the current route output preview:
+
+![Route 2D Preview](docs/images/route-2d-preview.svg)
