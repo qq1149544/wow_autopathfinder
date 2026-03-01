@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Runtime outputs
+route.json
+
+# Export outputs (large/generated)
+exports/adt-objs/
+exports/*.obj
+exports/*.png
+exports/*.svg
+exports/*.json
+exports/*.txt
+
+# Keep docs only (do not keep generated exports by default)
+!exports/.gitkeep
+
